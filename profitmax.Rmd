@@ -1,0 +1,35 @@
+---
+title: "Profittmaksimering"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment=NA)
+```
+
+Importerer nødvendige pakker:
+
+```{r}
+library(tidyverse)
+```
+
+Definerer produktfunksjonen `f` og parameterverdien (`a`).
+
+```{r}
+f <- function(x, a=0.5) {x^a}
+```
+
+Deretter plotter vi den:
+
+```{r}
+data.frame(x = 0) %>%
+  ggplot(aes(x = x)) +
+  stat_function(fun = f, color="darkblue", size=1.5) +
+  xlim(0,5) +
+  ylab("Produksjon") +
+  xlab("Arbeidskraft") +
+  ggtitle("Produktfunksjon") +
+  theme_bw()
+```
+
